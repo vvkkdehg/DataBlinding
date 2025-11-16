@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataBlinding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ListBox" Height="350" Width="350">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBoxNames"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 SelectionMode="Multiple">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                        <TextBlock Text="{Binding Age, StringFormat='Age: {0}'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Column="1" Grid.Row="3"
+                Content="Show Selected"
+                Click="Button_Click"/>
+        <!--<Label Grid.Column="1"
+               Grid.Row="1"
+               Content="Name"
+               FontSize="12"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <Label Grid.Column="1"
+               Grid.Row="2"
+               Content="Age"
+               FontSize="12"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Path=Name, Mode=OneTime}"
+                Grid.Row="1"
+                Grid.Column="2"
+                Margin="2"/>
+        <TextBox Text="{Binding Path=Age, Mode=OneWayToSource}"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="2"/>
+        <Button x:Name="helloBTN"
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Content="Info"
+                FontSize="12" Click="helloBTN_Click"
+                />-->
+        
     </Grid>
 </Window>
